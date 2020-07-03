@@ -1,11 +1,6 @@
 {
-<<<<<<< HEAD
   "name": "antd4",
-  "version": "4.2.0",
-=======
-  "name": "antd",
   "version": "4.4.0",
->>>>>>> 4.4.0
   "description": "An enterprise-class UI design language and React components implementation",
   "keywords": [
     "ant",
