@@ -3,6 +3,7 @@ category: Components
 type: General
 title: Icon
 toc: false
+cover: https://gw.alipayobjects.com/zos/alicdn/rrwbSt3FQ/Icon.svg
 ---
 
 Semantic vector graphics. Before use icons, you need to install `@ant-design/icons` package:
@@ -24,7 +25,7 @@ ReactDOM.render(<IconDisplay />, mountNode);
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| className | className of Icon | `string` | - |  |
+| className | className of Icon | string | - |  |
 | style | Style properties of icon, like `fontSize` and `color` | CSSProperties | - |  |
 | spin | Rotate icon with animation | boolean | false |  |
 | rotate | Rotate by n degrees (not working in IE9) | number | - |  |
@@ -144,6 +145,8 @@ You can import SVG icon as a react component by using `webpack` and [`@svgr/webp
 ```jsx
 import Icon from '@ant-design/icons';
 import MessageSvg from 'path/to/message.svg'; // path to your '*.svg' file.
+// in create-react-app:
+// import { ReactComponent as MessageSvg } from 'path/to/message.svg';
 
 ReactDOM.render(<Icon component={MessageSvg} />, mountNode);
 ```

@@ -5,7 +5,7 @@ import RcTable, { Summary } from 'rc-table';
 import { TableProps as RcTableProps, INTERNAL_HOOKS } from 'rc-table/lib/Table';
 import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
 import Spin, { SpinProps } from '../spin';
-import Pagination, { PaginationConfig } from '../pagination';
+import Pagination from '../pagination';
 import { ConfigContext } from '../config-provider/context';
 import usePagination, { DEFAULT_PAGE_SIZE, getPaginationParam } from './hooks/usePagination';
 import useLazyKVMap from './hooks/useLazyKVMap';
@@ -24,6 +24,7 @@ import {
   TablePaginationConfig,
   SortOrder,
   TableLocale,
+  TableAction,
 } from './interface';
 import useSelection, { SELECTION_ALL, SELECTION_INVERT } from './hooks/useSelection';
 import useSorter, { getSortData, SortState } from './hooks/useSorter';
@@ -35,7 +36,7 @@ import defaultLocale from '../locale/en_US';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import Column from './Column';
 import ColumnGroup from './ColumnGroup';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 
 export { ColumnsType, TablePaginationConfig };
@@ -60,7 +61,13 @@ interface ChangeEventInfo<RecordType> {
 export interface TableProps<RecordType>
   extends Omit<
     RcTableProps<RecordType>,
-    'transformColumns' | 'internalHooks' | 'internalRefs' | 'data' | 'columns' | 'scroll'
+    | 'transformColumns'
+    | 'internalHooks'
+    | 'internalRefs'
+    | 'data'
+    | 'columns'
+    | 'scroll'
+    | 'emptyText'
   > {
   dropdownPrefixCls?: string;
   dataSource?: RcTableProps<RecordType>['data'];
@@ -72,7 +79,7 @@ export interface TableProps<RecordType>
   locale?: TableLocale;
 
   onChange?: (
-    pagination: PaginationConfig,
+    pagination: TablePaginationConfig,
     filters: Record<string, Key[] | null>,
     sorter: SorterResult<RecordType> | SorterResult<RecordType>[],
     extra: TableCurrentDataSource<RecordType>,
@@ -116,6 +123,12 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     locale,
     showSorterTooltip = true,
   } = props;
+
+  devWarning(
+    !(typeof rowKey === 'function' && rowKey.length > 1),
+    'Table',
+    '`index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
+  );
 
   const screens = useBreakpoint();
   const mergedColumns = React.useMemo(() => {
@@ -178,7 +191,11 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   // ============================ Events =============================
   const changeEventInfo: Partial<ChangeEventInfo<RecordType>> = {};
 
-  const triggerOnChange = (info: Partial<ChangeEventInfo<RecordType>>, reset: boolean = false) => {
+  const triggerOnChange = (
+    info: Partial<ChangeEventInfo<RecordType>>,
+    action: TableAction,
+    reset: boolean = false,
+  ) => {
     const changeInfo = {
       ...changeEventInfo,
       ...info,
@@ -205,12 +222,18 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     }
 
     if (onChange) {
-      onChange(changeInfo.pagination!, changeInfo.filters!, changeInfo.sorter!, {
-        currentDataSource: getFilterData(
-          getSortData(rawData, changeInfo.sorterStates!, childrenColumnName),
-          changeInfo.filterStates!,
-        ),
-      });
+      onChange(
+        changeInfo.pagination!,
+        changeInfo.filters!,
+        changeInfo.sorter!,
+        {
+          currentDataSource: getFilterData(
+            getSortData(rawData, changeInfo.sorterStates!, childrenColumnName),
+            changeInfo.filterStates!,
+          ),
+          action,
+        },
+      );
     }
   };
 
@@ -231,6 +254,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
         sorter,
         sorterStates,
       },
+      'sort',
       false,
     );
   };
@@ -260,6 +284,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
         filters,
         filterStates,
       },
+      'filter',
       true,
     );
   };
@@ -288,9 +313,12 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
   // ========================== Pagination ==========================
   const onPaginationChange = (current: number, pageSize: number) => {
-    triggerOnChange({
-      pagination: { ...changeEventInfo.pagination, current, pageSize },
-    });
+    triggerOnChange(
+      {
+        pagination: { ...changeEventInfo.pagination, current, pageSize },
+      },
+      'paginate',
+    );
   };
 
   const [mergedPagination, resetPagination] = usePagination(
@@ -315,7 +343,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     // Dynamic table data
     if (mergedData.length < total!) {
       if (mergedData.length > pageSize) {
-        warning(
+        devWarning(
           false,
           'Table',
           '`dataSource` length is less than `pagination.total` but large than `pagination.pageSize`. Please make sure your config correct data with async mode.',
@@ -396,7 +424,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   let topPaginationNode: React.ReactNode;
   let bottomPaginationNode: React.ReactNode;
   if (pagination !== false) {
-    let paginationSize: PaginationConfig['size'];
+    let paginationSize: TablePaginationConfig['size'];
     if (mergedPagination.size) {
       paginationSize = mergedPagination.size;
     } else {
@@ -459,6 +487,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
             [`${prefixCls}-middle`]: mergedSize === 'middle',
             [`${prefixCls}-small`]: mergedSize === 'small',
             [`${prefixCls}-bordered`]: bordered,
+            [`${prefixCls}-empty`]: rawData.length === 0,
           })}
           data={pageData}
           rowKey={getRowKey}

@@ -18,39 +18,39 @@ const SourceImages = {
 
 const MORE_LIST: MoreProps[] = [
   {
-    title: '揭密可视化专家配色秘笈',
+    title: 'Ant Design 4.0 的一些杂事儿 - Space 篇',
     description:
-      '颜色搭配不仅可以传递出美感，颜色还可以通过不同的组合排序，形成一门新的界面语言，讲述数据的故事。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*M7rLR5follIAAAAAAAAAAABkARQnAQ',
-    date: '2020-04-02',
+      '作为前端开发者，我们总是不断的在与样式做斗争。今天，我们聊聊 Ant Design 中新增的 Space 组件。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*jHvSR48tRccAAAAAAAAAAABkARQnAQ',
+    date: '2020-04-24',
     source: 'zhihu',
-    href: 'https://zhuanlan.zhihu.com/p/112540818',
+    href: 'https://zhuanlan.zhihu.com/p/135446399',
   },
   {
-    title: 'HiTu 插画资产设计分享',
+    title: '编辑器设计系列：每天都在用，你真的了解它么？',
     description:
-      '分享一下我们在做 HiTu 插画设计的一些过程和方法，希望能给同样做插画资产的同学带来帮助与启发。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*cJdyS4KVDlgAAAAAAAAAAABkARQnAQ',
-    date: '2020-03-16',
+      '提起编辑器，你会想到什么？也许你从来没有意识到，但是从接触计算机开始，你就和各种编辑器打上了交道。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*c88yR4TO1z8AAAAAAAAAAABkARQnAQ',
+    date: '2020-04-15',
     source: 'zhihu',
-    href: 'https://zhuanlan.zhihu.com/p/112541651',
+    href: 'https://zhuanlan.zhihu.com/p/113961511',
   },
   {
-    title: '从常用图表到 DashBoard 页面模板，懒人套餐请享用吧！',
-    description: 'Ant Design 4.0 和 AntV 的重磅产品 G2 4.0 发布之际，图表的样式也跟着大升级了哦。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*d_D0TLmwFLoAAAAAAAAAAABkARQnAQ',
-    date: '2020-03-11',
+    title: 'JCD 驱动 - 复杂系统设计应对之道',
+    description:
+      '基于蚂蚁金服CTO线的业务土壤，我们探索出以JCD为核心的企业级产品设计思维，助力设计师在深耕业务上有章可循。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*y-xiQoZzBCEAAAAAAAAAAABkARQnAQ',
+    date: '2020-01-17',
     source: 'zhihu',
-    href: 'https://zhuanlan.zhihu.com/p/111373360',
+    href: 'https://zhuanlan.zhihu.com/p/103237648',
   },
   {
-    title: '言之有序',
-    description:
-      '大到一个系统，小到一个按钮，背后的每一条规则既要思考设计的易用性，同时也要去推敲组织的合理性。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*J1SBR47PngwAAAAAAAAAAABkARQnAQ',
-    date: '2020-03-03',
+    title: '折柱饼 +3 个套路，简单图表你真的会用吗？',
+    description: '本文一句话概括：数据可视化中，如何用最简单的图表高效地传递信息。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Q1DMQpLCDQgAAAAAAAAAAABkARQnAQ',
+    date: '2019-11-28',
     source: 'zhihu',
-    href: 'https://zhuanlan.zhihu.com/p/110442621',
+    href: 'https://zhuanlan.zhihu.com/p/93808863',
   },
 ];
 

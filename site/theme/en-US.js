@@ -11,7 +11,8 @@ module.exports = {
     'app.header.menu.resource': 'Resources',
     'app.header.menu.more': 'More',
     'app.header.menu.mobile': 'Mobile',
-    'app.header.menu.pro.v4': 'Ant Design Pro v4',
+    'app.header.menu.pro.v4': 'Ant Design Pro',
+    'app.header.menu.charts': 'Ant Design Charts',
     'app.header.menu.ecosystem': 'Ecosystem',
     'app.header.lang': '中文',
     'app.content.edit-page': 'Edit this page on GitHub!',
@@ -143,5 +144,6 @@ module.exports = {
     'app.docs.components.icon.pic-searcher.result-tip': 'Match the following icons for you:',
     'app.docs.components.icon.pic-searcher.th-icon': 'Icon',
     'app.docs.components.icon.pic-searcher.th-score': 'Probability',
+    'app.components.overview.search': 'Search in components',
   },
 };

@@ -28,6 +28,7 @@ exports[`Calendar Calendar should support locale 1`] = `
             readonly=""
             role="combobox"
             style="opacity: 0;"
+            unselectable="on"
             value=""
           />
         </span>
@@ -45,7 +46,7 @@ exports[`Calendar Calendar should support locale 1`] = `
       >
         <span
           aria-label="down"
-          class="anticon anticon-down"
+          class="anticon anticon-down ant-select-suffix"
           role="img"
         >
           <svg
@@ -86,6 +87,7 @@ exports[`Calendar Calendar should support locale 1`] = `
             readonly=""
             role="combobox"
             style="opacity: 0;"
+            unselectable="on"
             value=""
           />
         </span>
@@ -103,7 +105,7 @@ exports[`Calendar Calendar should support locale 1`] = `
       >
         <span
           aria-label="down"
-          class="anticon anticon-down"
+          class="anticon anticon-down ant-select-suffix"
           role="img"
         >
           <svg
@@ -967,6 +969,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
             readonly=""
             role="combobox"
             style="opacity:0"
+            unselectable="on"
             value=""
           />
         </span>
@@ -984,7 +987,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
       >
         <span
           aria-label="down"
-          class="anticon anticon-down"
+          class="anticon anticon-down ant-select-suffix"
           role="img"
         >
           <svg
@@ -1024,6 +1027,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
             readonly=""
             role="combobox"
             style="opacity:0"
+            unselectable="on"
             value=""
           />
         </span>
@@ -1041,7 +1045,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
       >
         <span
           aria-label="down"
-          class="anticon anticon-down"
+          class="anticon anticon-down ant-select-suffix"
           role="img"
         >
           <svg

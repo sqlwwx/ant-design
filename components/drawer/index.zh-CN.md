@@ -3,6 +3,7 @@ type: 反馈
 category: Components
 subtitle: 抽屉
 title: Drawer
+cover: https://gw.alipayobjects.com/zos/alicdn/7z8NJQhFb/Drawer.svg
 ---
 
 屏幕边缘滑出的浮层面板。
@@ -19,6 +20,7 @@ title: Drawer
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | closable | 是否显示右上角的关闭按钮 | boolean | true |
+| closeIcon | 自定义关闭图标 | ReactNode | `<CloseOutlined />` |
 | destroyOnClose | 关闭时销毁 Drawer 里的子元素 | boolean | false |
 | forceRender | 预渲染 Drawer 内元素 | boolean | false |
 | getContainer | 指定 Drawer 挂载的 HTML 节点, false 为挂载在当前 dom | HTMLElement \| `() => HTMLElement` \| Selectors \| false | 'body' |
@@ -41,9 +43,3 @@ title: Drawer
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |
 | footer | 抽屉的页脚 | ReactNode | - |
 | footerStyle | 抽屉页脚部件的样式 | CSSProperties | - |
-
-<style>
-#_hj_feedback_container {
-  display: none;
-}
-</style>

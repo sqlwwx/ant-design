@@ -4,6 +4,7 @@ type: 反馈
 noinstant: true
 title: Notification
 subtitle: 通知提醒框
+cover: https://gw.alipayobjects.com/zos/alicdn/Jxm5nw61w/Notification.svg
 ---
 
 全局展示通知提醒信息。
@@ -43,13 +44,17 @@ config 参数如下：
 | message | 通知提醒标题，必选 | string\|ReactNode | - |
 | onClose | 当通知关闭时触发 | Function | - |
 | onClick | 点击通知时触发的回调函数 | Function | - |
-| placement | 弹出位置，可选 `topLeft` `topRight` `bottomLeft` `bottomRight` | string | topRight |
+| placement | 弹出位置，可选 `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` |
 | style | 自定义内联样式 | [React.CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - |
 | top | 消息从顶部弹出时，距离顶部的位置，单位像素。 | number | 24 |
 
 还提供了一个全局配置方法，在调用前提前配置，全局一次生效。
 
 - `notification.config(options)`
+
+  > 当你使用 `ConfigProvider` 进行全局化配置时，系统会默认自动开启 RTL 模式。(4.3.0+)
+  >
+  > 当你想单独使用，可通过如下设置开启 RTL 模式。
 
 ```js
 notification.config({
@@ -66,9 +71,9 @@ notification.config({
 | closeIcon | 自定义关闭图标 | ReactNode | - |
 | duration | 默认自动关闭延时，单位秒 | number | 4.5 |
 | getContainer | 配置渲染节点的输出位置 | () => HTMLNode | () => document.body |
-| placement | 弹出位置，可选 `topLeft` `topRight` `bottomLeft` `bottomRight` | string | topRight |
+| placement | 弹出位置，可选 `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` |
 | top | 消息从顶部弹出时，距离顶部的位置，单位像素。 | number | 24 |
-| rtl | 是否开启 RTL 模式 | boolean | `false` |
+| rtl | 是否开启 RTL 模式 | boolean | false |
 
 ## FAQ
 

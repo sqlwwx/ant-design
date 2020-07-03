@@ -4,6 +4,7 @@ cols: 1
 type: 导航
 title: Menu
 subtitle: 导航菜单
+cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
 ---
 
 为页面和功能提供导航的菜单列表。
@@ -45,8 +46,9 @@ subtitle: 导航菜单
 | theme | 主题颜色 | `light` \| `dark` | `light` |  |
 | onClick | 点击 MenuItem 调用此函数 | function({ item, key, keyPath, domEvent }) | - |  |
 | onDeselect | 取消选中时调用，仅在 multiple 生效 | function({ item, key, keyPath, selectedKeys, domEvent }) | - |  |
+| triggerSubMenuAction | SubMenu 展开/关闭的触发行为 | `hover` \| `click` | `hover` |  |
 | onOpenChange | SubMenu 展开/关闭的回调 | function(openKeys: string\[]) | noop |  |
-| onSelect | 被选中时调用 | function({ item, key, keyPath, selectedKeys, domEvent }) | 无   |  |
+| onSelect | 被选中时调用 | function({ item, key, keyPath, selectedKeys, domEvent }) | -   |  |
 | overflowedIndicator | 自定义 Menu 折叠时的图标 | ReactNode | - |  |
 
 > More options in [rc-menu](https://github.com/react-component/menu#api)
@@ -59,6 +61,7 @@ subtitle: 导航菜单
 | key      | item 的唯一标志          | string    |        |       |
 | title    | 设置收缩时展示的悬浮标题 | string    |        |       |
 | icon     | 菜单图标                 | ReactNode |        | 4.2.0 |
+| danger   | 展示错误状态样式         | boolean   | false  | 4.3.0 |
 
 > 注意：`icon` 是 `4.2.0` 新增的属性，之前的版本请使用下面的方式定义图标。
 >

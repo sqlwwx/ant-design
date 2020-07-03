@@ -3,6 +3,7 @@ category: Components
 cols: 1
 type: Navigation
 title: Menu
+cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
 ---
 
 A versatile menu for navigation.
@@ -44,6 +45,7 @@ More layouts with navigation: [Layout](/components/layout).
 | theme | Color theme of the menu | `light` \| `dark` | `light` |  |
 | onClick | Called when a menu item is clicked | function({ item, key, keyPath, domEvent }) | - |  |
 | onDeselect | Called when a menu item is deselected (multiple mode only) | function({ item, key, keyPath, selectedKeys, domEvent }) | - |  |
+| triggerSubMenuAction | Which action can trigger submenu open/close | `hover` \| `click` | `hover` |  |
 | onOpenChange | Called when sub-menus are opened or closed | function(openKeys: string\[]) | noop |  |
 | onSelect | Called when a menu item is selected | function({ item, key, keyPath, selectedKeys, domEvent }) | none |  |
 | overflowedIndicator | Customized icon when menu is collapsed | ReactNode | - |  |
@@ -58,6 +60,7 @@ More layouts with navigation: [Layout](/components/layout).
 | key      | Unique ID of the menu item           | string    |               |         |
 | title    | Set display title for collapsed item | string    |               |         |
 | icon     | icon of the menu item                | ReactNode |               | 4.2.0   |
+| danger   | Display the danger style             | boolean   | false         | 4.3.0   |
 
 > Note: `icon` is a newly added prop in`4.2.0`. For previous versions, please use the following method to define the icon.
 >
